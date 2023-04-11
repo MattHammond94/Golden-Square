@@ -8,4 +8,4 @@ def check_codeword(codeword)
   end
 end
 
-check_codeword("clique")
+check_codeword("")
