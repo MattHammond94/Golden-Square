@@ -3,7 +3,7 @@ class PasswordChecker
     if password.length >= 8
       return true
     else 
-      fail "Invalid passowrd must be 8+ characters."
+      fail "Invalid password must be 8+ characters."
     end
   end
 end
