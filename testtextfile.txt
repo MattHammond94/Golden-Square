@@ -1,4 +1,0 @@
-TestyTest
-Secondlineadded
-Thirdandfinalline
-Gitignoretest
