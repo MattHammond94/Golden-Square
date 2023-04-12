@@ -3,6 +3,6 @@ def make_snippet(string)
   if arr.size < 5 
     string
   else
-    arr[0..4].join(" ")
+    "#{arr[0..4].join(" ")}..."
   end
 end
