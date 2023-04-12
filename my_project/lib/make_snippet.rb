@@ -1,4 +1,8 @@
 def make_snippet(string)
   arr = string.split(" ")
-  arr[0..4].join(" ")
+  if arr.size < 5 
+    string
+  else
+    arr[0..4].join(" ")
+  end
 end
