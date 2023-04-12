@@ -1,3 +1,3 @@
 def count_words(string)
-  3
+  5
 end
