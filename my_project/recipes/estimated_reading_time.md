@@ -11,7 +11,7 @@ returns an integer or float(minutes)
 
 Potential side effects: 
 if text total is < 200 program will only return a 0.
-need a to use float data types for more accurate estimates(seconds) -->
+need to use float data types for more accurate estimates(seconds) -->
 
 ## 3. Examples
 <!-- estimated_read_time(500 words) returns 2.5(minutes)
