@@ -6,6 +6,16 @@ describe Gratitudes do
   end
 
   it 'Should return a string containing single passed gratitude after one add call' do
-    expect(Gratitudes.new.add("BBQ Sauce").format).to eq "Be grateful for: BBQ Sauce"
+    grat = Gratitudes.new
+    grat.add("BBQ Sauce")
+    expect(grat.format).to eq "Be grateful for: BBQ Sauce"
+  end
+
+  it 'Should return a string containing multiple gratitudes after a series of add calls' do
+    grat = Gratitudes.new
+    grat.add("Nandos")
+    grat.add("Bangin' tunes")
+    grat.add("Gemma Collins")
+    expect(grat.format).to eq "Be grateful for: Nandos, Bangin' tunes, Gemma Collins"
   end
 end
