@@ -6,6 +6,6 @@ describe 'count_words' do
   end
 
   it 'Should return 5 for a string containing 5 words' do 
-    expect(count_qords("boris")).to eq 5
+    expect(count_words("boris")).to eq 5
   end
 end
