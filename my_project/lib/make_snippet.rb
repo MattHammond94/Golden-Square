@@ -1,3 +1,4 @@
 def make_snippet(string)
-  string
+  arr = string.split(" ")
+  arr[0..4].join(" ")
 end
