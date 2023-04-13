@@ -4,10 +4,10 @@ describe 'EstimatedReadingTime' do
 
   # context 'Word counts greater than 200' do
   #   it 'Should return a value in minutes for word counts higher than 200' do
-  #     expect(estimated_reading_time(250)).to eq "1.25 minutes to read"
-  #     # expect(estimated_reading_time(400)).to eq "2 minutes to read"
-  #     # expect(estimated_reading_time(500)).to eq "2.5 minutes to read"
-  #     # expect(estimated_reading_time(1000)).to eq "5 minutes to read"
+  #       expect(estimated_reading_time("")).to eq "1.25 minutes to read"
+  #       expect(estimated_reading_time(400)).to eq "2 minutes to read"
+  #       expect(estimated_reading_time(500)).to eq "2.5 minutes to read"
+  #       expect(estimated_reading_time(1000)).to eq "5 minutes to read"
   #   end
   # end
 
