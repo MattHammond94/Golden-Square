@@ -3,7 +3,7 @@ As a user
 So that I can impove my grammar
 I want to verify that a text starts with a capital letter and ends with a suitable sentence-ending punctuation mark. 
 
-## 2. Design the Method Signature
+## 2. Method Signature
 Ruby
 * grammar_checker(text)
 * takes a string(bulk of text/sentence)
@@ -14,13 +14,13 @@ Would have to verify with user/client if they were happy for further punctuation
 
 Can use a regex to identify punctuation however this in some cases can miss certain punctuation(if use [[:punct:]]) what are we defining as suitable sentence ending punctuation?
 
-## 3. Create Examples as Tests
+## 3. Examples
 
-> grammar_checker("This is correct.") => true
-> grammar_checker("this is not") => false
-> grammar_checker(" ") => false
-> grammar_checker("THIS IS ALSO CORRECT!!!") => true
-> grammar_checker("tHiS iS nOt>") => false
+* grammar_checker("This is correct.") => true
+* grammar_checker("this is not") => false
+* grammar_checker(" ") => false
+* grammar_checker("THIS IS ALSO CORRECT!!!") => true
+* grammar_checker("tHiS iS nOt>") => false
 
 ## 4. Implement Behaviour 
 _Follow test drive approch(Red, green, refactor) to implement behaviour_
