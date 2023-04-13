@@ -4,6 +4,10 @@ describe 'TaskTracker' do
   context 'trues' do
     it 'Should return true if text passed includes #TODO' do
       expect(task_tracker("#TODO")).to eq true
+      expect(task_tracker("#TODO walk the dog")).to eq true
+      expect(task_tracker("Check the weather in Pompei #TODO")).to eq true
+      expect(task_tracker("Buy plenty of #TODO caserole dishes for saturday")).to eq true
+      expect(task_tracker("#TODO: walk the honeybadger")).to eq true
     end
   end
 
