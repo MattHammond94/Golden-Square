@@ -1,16 +1,20 @@
 require 'grammar_checker'
 
 describe 'GrammarChcecker' do
-  it 'should return true when grammar is correct as per spec' do
-    expect(grammar_checker("This is correct.")).to eq true
+  context 'trues' do 
+    it 'should return true when grammar is correct as per spec' do
+      expect(grammar_checker("This is correct.")).to eq true
+      expect(grammar_checker("THIS IS ALSO CORRECT!!!")).to eq true
+      expect(grammar_checker("Ground control to Major Tom?")).to eq true
+    end
   end
 
-  it 'should return false when the grammar is incorrect as per spec' do
-    expect(grammar_checker("this is incorrect")).to eq false
-  end
-
-  it 'Should return false when text does not end in correct grammar' do
-    expect(grammar_checker("This is incorrect]>")).to eq false
+  context 'falses' do
+    it 'should return false when the grammar is incorrect as per spec' do
+      expect(grammar_checker("this is incorrect")).to eq false
+      expect(grammar_checker("This is incorrect]>")).to eq false
+      expect(grammar_checker("ground control to Major Tom!")).to eq false
+    end
   end
 
   it "Should return false for an empty string" do 

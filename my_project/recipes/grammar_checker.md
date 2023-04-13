@@ -12,7 +12,7 @@ Ruby
 Potential side effects: 
 Would have to verify with user/client if they were happy for further punctuation to be used within the sentence/text. Are they happy for words to be fully upcase or only capitalized? What if every word if capitalized? 
 
-Can use a regex to identify punctuation however this in some cases can miss certain punctuation(if use [[:punct:]]) what are we defining as suitable sentence ending punctuation?
+Can use a regex to identify punctuation however this in some cases can miss certain punctuation(if use [[:punct:]], or \W.) Only want sentence ending punctuation.
 
 ## 3. Examples
 
