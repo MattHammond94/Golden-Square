@@ -12,14 +12,15 @@ Ruby
 Potential side effects: 
 Would have to verify with user/client if they were happy for further punctuation to be used within the sentence/text. Are they happy for words to be fully upcase or only capitalized? What if every word if capitalized? 
 
-Can use a regex to identify punctuation however this in some cases can miss certain punctuation(if use [[:punct:]]) what are we defining as suitable sentence ending punctuation? 
+Can use a regex to identify punctuation however this in some cases can miss certain punctuation(if use [[:punct:]]) what are we defining as suitable sentence ending punctuation?
 
 ## 3. Create Examples as Tests
-grammar_checker("This is correct.") => true
-grammar_checker("this is not") => false
-grammar_checker(" ") => false
-grammar_checker("THIS IS ALSO CORRECT!!!") => true
-grammar_checker("tHiS iS nOt>") => false
+
+> grammar_checker("This is correct.") => true
+> grammar_checker("this is not") => false
+> grammar_checker(" ") => false
+> grammar_checker("THIS IS ALSO CORRECT!!!") => true
+> grammar_checker("tHiS iS nOt>") => false
 
 ## 4. Implement Behaviour 
-Follow test drive approch(Red, green, refactor) to implement behaviour
+_Follow test drive approch(Red, green, refactor) to implement behaviour_
