@@ -1,5 +1,5 @@
 def grammar_checker(text)
-  if text.start_with?(/[A-Z]/)
+  if text.start_with?(/[A-Z]/) && text.end_with?(".", "!", "?")
     true
   else
     false
