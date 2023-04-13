@@ -19,15 +19,16 @@ describe 'EstimatedReadingTime' do
       # expect(estimated_reading_time(87)).to eq "26 seconds"
       expect(estimated_reading_time("Twenty words is a lot more words than I had anticipated befofre I started writing this very long stringy string")).to eq "6 seconds"
       expect(estimated_reading_time("Ten words however is not so bad I dont think")).to eq "3 seconds"
-      expect(estimated_reading_time("four nice shiny words")).to eq "1 seconds"
+      expect(estimated_reading_time("four nice shiny words")).to eq "A second or less"
+      expect(estimated_reading_time("Mos Def")).to eq "A second or less"
     end
   end
 
   context 'no amount of words' do
     it 'Should return a 0 for no words' do
-      expect(estimated_reading_time("")).to eq 0
-      expect(estimated_reading_time(" ")).to eq 0
-      expect(estimated_reading_time("    ")).to eq 0
+      expect(estimated_reading_time("")).to eq "You have nothing to read"
+      expect(estimated_reading_time(" ")).to eq "You have nothing to read"
+      expect(estimated_reading_time("    ")).to eq "You have nothing to read"
     end
   end
   
