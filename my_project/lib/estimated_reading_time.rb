@@ -1,3 +1,3 @@
 def estimated_reading_time(text)
-  1
+  text / 200
 end
