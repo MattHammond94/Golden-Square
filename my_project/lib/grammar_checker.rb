@@ -1,3 +1,7 @@
 def grammar_checker(text)
-  true
+  if text.start_with?(/[A-Z]/)
+    true
+  else
+    false
+  end
 end
