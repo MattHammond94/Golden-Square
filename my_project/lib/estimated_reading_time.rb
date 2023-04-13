@@ -1,3 +1,3 @@
 def estimated_reading_time(text)
-  text / 200
+  text.to_f / 200
 end
