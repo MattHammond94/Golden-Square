@@ -1,8 +1,11 @@
 class DiaryEntry
   def initialize(title, contents)
+    @title = title
+    @contents = contents
   end
 
   def title
+    
   end
 
   def contents
