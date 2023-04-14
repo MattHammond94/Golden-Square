@@ -14,6 +14,9 @@ describe 'TaskTracker' do
   context 'falses' do
     it 'Should return false if text passed does not include a #TODO' do
       expect(task_tracker("plain string")).to eq false
+      expect(task_tracker("#todo")).to eq false
+      expect(task_tracker("#ToD")).to eq false
+      expect(task_tracker("")).to eq false
     end
   end
 
