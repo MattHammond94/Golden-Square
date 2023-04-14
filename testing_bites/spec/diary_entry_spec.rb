@@ -5,6 +5,6 @@ describe DiaryEntry do
     diary_1 = DiaryEntry.new("September", "I visited captain beefheart")
     expect(diary_1.title).to eq "September"
     diary_2 = DiaryEntry.new("October", "Beefheart left me broken hearted")
-    expect(diary_2.title).to eq "October"
+    expect(diary_2.contents).to eq "Beefheart left me broken hearted"
   end
 end
