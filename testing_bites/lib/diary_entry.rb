@@ -17,7 +17,7 @@ class DiaryEntry
   end
 
   def reading_time(wpm)
-    self.count_words
+    self.count_words / wpm
   end
 
   def reading_chunk(wpm, minutes)

@@ -17,6 +17,8 @@ describe DiaryEntry do
 
   it 'Should return an integer representing the amount of minutes taken to read ' do
     diary = DiaryEntry.new("April", "I became enfatuated by the beef")
+    expect(diary.reading_time(1)).to eq 6
     expect(diary.reading_time(2)).to eq 3
+    expect(diary.reading_time(6)).to eq 1
   end
 end
