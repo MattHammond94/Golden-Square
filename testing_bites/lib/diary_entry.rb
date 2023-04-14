@@ -21,6 +21,7 @@ class DiaryEntry
   end
 
   def reading_chunk(wpm, minutes)
-    words = self.count_words
+    amount = (wpm * minutes)
+    self.contents.split(" ")[0..(amount - 1)].join(" ")
   end
 end

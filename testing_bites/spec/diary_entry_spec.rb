@@ -25,5 +25,8 @@ describe DiaryEntry do
   it 'Should return a string of text that user is able to read within minutes frame' do
     diary = DiaryEntry.new("December", "It was one of the darkest and coldest decembers in memory when beefheart came crawling back into my life from the deep recess' of Bruges")
     expect(diary.reading_chunk(1, 6)).to eq "It was one of the darkest"
+    expect(diary.reading_chunk(2, 5)).to eq "It was one of the darkest and coldest decembers in"
+    expect(diary.reading_chunk(3, 3)).to eq "It was one of the darkest and coldest decembers"
+    expect(diary.reading_chunk(12, 2)).to eq "It was one of the darkest and coldest decembers in memory when beefheart came crawling back into my life from the deep recess' of"
   end
 end
