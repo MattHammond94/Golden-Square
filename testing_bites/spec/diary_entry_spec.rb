@@ -14,4 +14,9 @@ describe DiaryEntry do
     diary = DiaryEntry.new("March", "I began to pen letters to captain beefheart of Belgium")
     expect(diary.count_words).to eq 10
   end
+
+  it 'Should return an integer representing the amount of minutes taken to read ' do
+    diary = DiaryEntry.new("April", "I became enfatuated by the beef")
+    expect(diary.reading_time(2)).to eq 3
+  end
 end
