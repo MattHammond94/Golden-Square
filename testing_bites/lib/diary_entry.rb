@@ -5,10 +5,11 @@ class DiaryEntry
   end
 
   def title
-    return @title
+    @title
   end
 
   def contents
+    @contents
   end
 
   def count_words
