@@ -5,7 +5,7 @@ class DiaryEntry
   end
 
   def title
-    
+    return @title
   end
 
   def contents
