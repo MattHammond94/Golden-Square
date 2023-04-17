@@ -40,7 +40,7 @@ lib_1.list => []
 
 # 3. Ensure an error is returned when add is passed a non String data type
 lib_1 = MusicTracker.new
-lib_1.add(nil) => "Error
+lib_1.add(nil) => "Error"
 ```
 ## 4. Implement Behaviour
  _Follow test drive apparoch(Red, green, refactor) to implement behaviour_
