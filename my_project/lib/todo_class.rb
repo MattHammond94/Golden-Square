@@ -13,6 +13,7 @@ class TodoTracker
   end
 
   def mark_as_complete(task)
-
+    location = @list.index(task)
+    @list.delete_at(location)
   end
 end
