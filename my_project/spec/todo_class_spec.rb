@@ -35,4 +35,20 @@ describe TodoTracker do
       expect(todo_1.list).to eq ["Polish said knuckleduster", "Plant a cherry tree in the garden", "Feed the peregrine falcon", "Complete my short novella", "Make a batch of brownies"]
     end
   end
+
+  context 'failures' do
+  #   it 'Should return a fail message if task to add is not a string' do
+      
+  #   end
+
+    it 'Should return a fail message when task to be completed does not exist' do
+      todo_1 = TodoTracker.new("Aprils tasks")
+      todo_1.add("Buy a new knuckleduster")
+      todo_1.add("Polish said knuckleduster")
+      todo_1.add("Update my ipod")
+      todo_1.add("Plant a cherry tree in the garden")
+      todo_1.add("Feed the peregrine falcon")
+      expect { todo_1.mark_as_complete("F33D Th3 P3regrine Falcon!") }.to raise_error "This task does not exist therefore cannot be completed"
+    end
+  end
 end
