@@ -5,6 +5,7 @@ class TodoTracker
   end
 
   def add(task)
+    fail "This is not a valid input" unless task.is_a?(String)
     @list << task
   end
 

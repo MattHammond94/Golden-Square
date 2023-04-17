@@ -37,9 +37,12 @@ describe TodoTracker do
   end
 
   context 'failures' do
-  #   it 'Should return a fail message if task to add is not a string' do
-      
-  #   end
+    it 'Should return a fail message if task to add is not a string' do
+      todo_1 = TodoTracker.new("Aprils tasks")
+      expect { todo_1.add(nil) }.to raise_error "This is not a valid input"
+      expect { todo_1.add(14) }.to raise_error "This is not a valid input"
+      expect { todo_1.add([]) }.to raise_error "This is not a valid input"
+    end
 
     it 'Should return a fail message when task to be completed does not exist' do
       todo_1 = TodoTracker.new("Aprils tasks")
@@ -49,6 +52,7 @@ describe TodoTracker do
       todo_1.add("Plant a cherry tree in the garden")
       todo_1.add("Feed the peregrine falcon")
       expect { todo_1.mark_as_complete("F33D Th3 P3regrine Falcon!") }.to raise_error "This task does not exist therefore cannot be completed"
+      expect { todo_1.mark_as_complete("Not even a present task") }.to raise_error "This task does not exist therefore cannot be completed"
     end
   end
 end
