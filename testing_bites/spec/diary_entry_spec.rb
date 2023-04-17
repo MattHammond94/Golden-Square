@@ -22,11 +22,44 @@ describe DiaryEntry do
     expect(diary.reading_time(6)).to eq 1
   end
 
-  it 'Should return a string of text that user is able to read within minutes frame' do
-    diary = DiaryEntry.new("December", "It was one of the darkest and coldest decembers in memory when beefheart came crawling back into my life from the deep recess' of Bruges")
-    expect(diary.reading_chunk(1, 6)).to eq "It was one of the darkest"
-    expect(diary.reading_chunk(2, 5)).to eq "It was one of the darkest and coldest decembers in"
-    expect(diary.reading_chunk(3, 3)).to eq "It was one of the darkest and coldest decembers"
-    expect(diary.reading_chunk(12, 2)).to eq "It was one of the darkest and coldest decembers in memory when beefheart came crawling back into my life from the deep recess' of"
+  describe "reading_chunk" do
+    context 'With a text readable within the given minutes' do
+      it 'Returns the full text' do 
+        diary_entry = DiaryEntry.new("title", "One two three")
+        chunk = diary_entry.reading_chunk(200, 1)
+        expect(chunk).to eq "One two three"
+      end
+    end
+
+    context 'with a contents unreadable within the time' do
+      it 'returns a readable chunk' do
+        diary_entry = DiaryEntry.new("title", "One two three")
+        chunk = diary_entry.reading_chunk(2, 1)
+        expect(chunk).to eq "One two"
+      end
+
+      it 'returns the next chunk, next time it is called' do
+        diary_entry = DiaryEntry.new("title", "One two three")
+        diary_entry.reading_chunk(2, 1)
+        chunk = diary_entry.reading_chunk(2, 1)
+        expect(chunk).to eq "three"
+      end
+
+      it 'restarts after reading the whole contents' do
+        diary_entry = DiaryEntry.new("title", "One two three")
+        diary_entry.reading_chunk(2, 1)
+        diary_entry.reading_chunk(2, 1)
+        chunk = diary_entry.reading_chunk(2, 1)
+        expect(chunk).to eq "One two"
+      end
+
+      it 'Restarts if it finishes exactly on the end' do
+        diary_entry = DiaryEntry.new("title", "One two three")
+        diary_entry.reading_chunk(2, 1)
+        diary_entry.reading_chunk(1, 1)
+        chunk = diary_entry.reading_chunk(2, 1)
+        expect(chunk).to eq "One two"
+      end
+    end 
   end
 end
