@@ -6,7 +6,7 @@ class TodoTracker
 
   def add(task)
     fail "This is not a valid input" unless task.is_a?(String)
-    @list << task
+    task.empty? ? nil : @list << task
   end
 
   def list

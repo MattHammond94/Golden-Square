@@ -1,6 +1,15 @@
 require 'todo_class'
 
 describe TodoTracker do 
+
+  context 'No tasks added to list' do
+    it 'Should return an empty list when no tasks are added' do
+      todo_1 = TodoTracker.new("Aprils tasks")
+      todo_1.add("")
+      expect(todo_1.list).to eq []
+    end
+  end
+
   context 'multiple tasks added to new todo list' do
     it 'Should return a list of tasks after multiple adds called.' do
       todo_1 = TodoTracker.new("Aprils tasks")
@@ -23,9 +32,11 @@ describe TodoTracker do
   context 'Multiple tasks added and removed' do
     it 'Should return a list as expected after multiple adds followed by multiple completes and vice versa' do
       todo_1 = TodoTracker.new("Aprils tasks")
+      todo_1.add("")
       todo_1.add("Buy a new knuckleduster")
       todo_1.add("Polish said knuckleduster")
       todo_1.add("Update my ipod")
+      todo_1.add("")
       todo_1.add("Plant a cherry tree in the garden")
       todo_1.add("Feed the peregrine falcon")
       todo_1.mark_as_complete("Update my ipod")
