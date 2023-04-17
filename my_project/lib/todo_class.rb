@@ -11,11 +11,15 @@ class TodoTracker
 
   def list
     @list
+    # puts "#{@title}:"
+    # puts @list
+    # ^^^ This would require all the test expected outputs to be rewritten to account for a
+    # list of strings now as opposed to an array - just an aesthetic preference more than 
+    # a necessity.
   end
 
   def mark_as_complete(task)
     fail "This task does not exist therefore cannot be completed" if !@list.include?(task)
-    location = @list.index(task)
-    @list.delete_at(location)
+    @list.delete(task)
   end
 end
