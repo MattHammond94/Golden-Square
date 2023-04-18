@@ -4,7 +4,7 @@ class TodoList
   end
 
   def add(todo)
-    @list << todo
+    @list << todo unless todo.task.empty?
   end
 
   def incomplete
