@@ -42,6 +42,13 @@ describe 'Integration' do
       expect(diary_1.reading_time(2)).to eq 10
       expect(diary_1.reading_time(5)).to eq 5
     end
+
+    it 'Should return an error message when the wpm is less than 0' do
+      diary_1 = Diary.new
+      entry_1 = DiaryEntry.new("April", "Went to the shop")
+      diary_1.add(entry_1)
+      expect { diary_1.reading_time(0) }.to raise_error "Words per minute must be more than 0"
+    end
   end
 
   context 'find_best_entry_for_reading_time' do
@@ -51,13 +58,16 @@ describe 'Integration' do
       entry_2 = DiaryEntry.new("May", "Went to the shops again nothing major")
       entry_3 = DiaryEntry.new("June", "Went to the beach, the shops were closed")
       entry_4 = DiaryEntry.new("July", "July has the longest story written in the diary simply because it makes it more applicable for our testy here")
+      entry_5 = DiaryEntry.new("August", "Yes it is")
       diary_1.add(entry_1)
       diary_1.add(entry_2)
       diary_1.add(entry_3)
       diary_1.add(entry_4)
+      diary_1.add(entry_5)
       expect(diary_1.find_best_entry_for_reading_time(5, 3)).to eq "June"
       expect(diary_1.find_best_entry_for_reading_time(10, 2)).to eq "July"
       expect(diary_1.find_best_entry_for_reading_time(2, 2)).to eq "April"
+      expect(diary_1.find_best_entry_for_reading_time(1, 3)).to eq "August"
     end
   end
 end
