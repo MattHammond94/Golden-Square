@@ -15,11 +15,8 @@ class Diary
     @entries.map { |entry| entry.count_words }
   end
 
-  def reading_time(wpm) # wpm is an integer representing
-                        # the number of words the user can read per minute
-    # Returns an integer representing an estimate of the reading time in minutes
-    # if the user were to read all entries in the diary.
-    @entries.map { |entry| entry.reading_time(wpm) }.sum
+  def reading_time(wpm)
+    @entries.sum { |entry| entry.reading_time(wpm) }
   end
 
   def find_best_entry_for_reading_time(wpm, minutes)
