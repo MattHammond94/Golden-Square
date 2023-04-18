@@ -1,6 +1,7 @@
 class Diary
   def initialize
     @entries = []
+    @amount_can_read = 0
   end
 
   def add(entry) 
@@ -27,5 +28,14 @@ class Diary
     # Returns an instance of diary entry representing the entry that is closest 
     # to, but not over, the length that the user could read in the minutes they
     # have available given their reading speed.
+
+    @amount_can_read += wpm * minutes
+    @entries.map { |entry| entry.count_words == selected_length ? entry.title : nil }
+  end
+
+  private 
+  
+  def selected_length
+    count_words.select { |num| num <= @amount_can_read }.max
   end
 end
