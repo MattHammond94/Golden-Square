@@ -29,7 +29,7 @@ class Diary
     # to, but not over, the length that the user could read in the minutes they
     # have available given their reading speed.
 
-    @amount_can_read += wpm * minutes
+    @amount_can_read = wpm * minutes
     @entries.find { |entry| entry.count_words == selected_length }.title
   end
 

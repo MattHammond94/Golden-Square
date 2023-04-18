@@ -56,6 +56,8 @@ describe 'Integration' do
       diary_1.add(entry_3)
       diary_1.add(entry_4)
       expect(diary_1.find_best_entry_for_reading_time(5, 3)).to eq "June"
+      expect(diary_1.find_best_entry_for_reading_time(10, 2)).to eq "July"
+      expect(diary_1.find_best_entry_for_reading_time(2, 2)).to eq "April"
     end
   end
 end
