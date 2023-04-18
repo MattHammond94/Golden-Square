@@ -28,7 +28,6 @@ describe 'Integration' do
     end
   end
 
-
   context 'reading time after multiple diary entries added' do
     it 'Should return a single integer representing the total amount of time taken to read all diary entries' do
       diary_1 = Diary.new
@@ -68,6 +67,11 @@ describe 'Integration' do
       expect(diary_1.find_best_entry_for_reading_time(10, 2)).to eq entry_4
       expect(diary_1.find_best_entry_for_reading_time(2, 2)).to eq entry_1
       expect(diary_1.find_best_entry_for_reading_time(1, 3)).to eq entry_5
+    end
+
+    it 'Should return nil when no entries are added to diary' do
+      diary_1 = Diary.new
+      expect(diary_1.find_best_entry_for_reading_time(5, 3)).to eq nil
     end
   end
   
