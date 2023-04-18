@@ -12,7 +12,7 @@ class Diary
   end
 
   def count_words
-     @entries.map { |x| x.count_words }
+    @entries.map { |x| x.count_words }
   end
 
   def reading_time(wpm) # wpm is an integer representing
