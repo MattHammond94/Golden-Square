@@ -19,7 +19,7 @@ class Diary
                         # the number of words the user can read per minute
     # Returns an integer representing an estimate of the reading time in minutes
     # if the user were to read all entries in the diary.
-
+    @entries.map { |entry| entry.reading_time(wpm) }.sum
   end
 
   def find_best_entry_for_reading_time(wpm, minutes)

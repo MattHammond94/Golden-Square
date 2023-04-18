@@ -39,6 +39,8 @@ describe 'Integration' do
       diary_1.add(entry_2)
       diary_1.add(entry_3)
       expect(diary_1.reading_time(1)).to eq 19
+      expect(diary_1.reading_time(2)).to eq 10
+      expect(diary_1.reading_time(5)).to eq 5
     end
   end
 end
