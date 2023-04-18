@@ -30,7 +30,7 @@ class Diary
     # have available given their reading speed.
 
     @amount_can_read += wpm * minutes
-    entry = @entries.select { |entry| entry.count_words == selected_length }.title
+    @entries.find { |entry| entry.count_words == selected_length }.title
   end
 
   private 

@@ -44,18 +44,18 @@ describe 'Integration' do
     end
   end
 
-  # context 'find_best_entry_for_reading_time' do
-  #   it 'Should return the title of the instance that contains the closest length contents to what the user can read' do
-  #     diary_1 = Diary.new
-  #     entry_1 = DiaryEntry.new("April", "Went to the shop")
-  #     entry_2 = DiaryEntry.new("May", "Went to the shops again nothing major")
-  #     entry_3 = DiaryEntry.new("June", "Went to the beach, the shops were closed")
-  #     entry_4 = DiaryEntry.new("July", "July has the longest story written in the diary simply because it makes it more applicable for our testy here")
-  #     diary_1.add(entry_1)
-  #     diary_1.add(entry_2)
-  #     diary_1.add(entry_3)
-  #     diary_1.add(entry_4)
-  #     expect(diary_1.find_best_entry_for_reading_time(5, 3)).to eq "June"
-  #   end
-  # end
+  context 'find_best_entry_for_reading_time' do
+    it 'Should return the title of the instance that contains the closest length contents to what the user can read' do
+      diary_1 = Diary.new
+      entry_1 = DiaryEntry.new("April", "Went to the shop")
+      entry_2 = DiaryEntry.new("May", "Went to the shops again nothing major")
+      entry_3 = DiaryEntry.new("June", "Went to the beach, the shops were closed")
+      entry_4 = DiaryEntry.new("July", "July has the longest story written in the diary simply because it makes it more applicable for our testy here")
+      diary_1.add(entry_1)
+      diary_1.add(entry_2)
+      diary_1.add(entry_3)
+      diary_1.add(entry_4)
+      expect(diary_1.find_best_entry_for_reading_time(5, 3)).to eq "June"
+    end
+  end
 end
