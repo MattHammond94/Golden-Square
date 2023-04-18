@@ -52,7 +52,7 @@ describe 'Integration' do
   end
 
   context 'find_best_entry_for_reading_time' do
-    it 'Should return the title of the instance that contains the closest length contents to what the user can read' do
+    it 'Should return the instance that contains the closest length contents to what the user can read' do
       diary_1 = Diary.new
       entry_1 = DiaryEntry.new("April", "Went to the shop")
       entry_2 = DiaryEntry.new("May", "Went to the shops again nothing major")
@@ -64,10 +64,19 @@ describe 'Integration' do
       diary_1.add(entry_3)
       diary_1.add(entry_4)
       diary_1.add(entry_5)
-      expect(diary_1.find_best_entry_for_reading_time(5, 3)).to eq "June"
-      expect(diary_1.find_best_entry_for_reading_time(10, 2)).to eq "July"
-      expect(diary_1.find_best_entry_for_reading_time(2, 2)).to eq "April"
-      expect(diary_1.find_best_entry_for_reading_time(1, 3)).to eq "August"
+      expect(diary_1.find_best_entry_for_reading_time(5, 3)).to eq entry_3
+      expect(diary_1.find_best_entry_for_reading_time(10, 2)).to eq entry_4
+      expect(diary_1.find_best_entry_for_reading_time(2, 2)).to eq entry_1
+      expect(diary_1.find_best_entry_for_reading_time(1, 3)).to eq entry_5
+    end
+  end
+  
+  context 'best entry for reading fail' do
+    it 'Should return a error message when either values passed are below zero' do
+      diary_1 = Diary.new
+      entry_1 = DiaryEntry.new("May", "Went to the shops again nothing major")
+      diary_1.add(entry_1)
+      expect { diary_1.find_best_entry_for_reading_time(0, 0) }.to raise_error "neither wpm or minutes can be below 0"
     end
   end
 end

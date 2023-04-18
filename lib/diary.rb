@@ -22,7 +22,8 @@ class Diary
 
   def find_best_entry_for_reading_time(wpm, minutes)
     @amount_can_read = wpm * minutes
-    @entries.find { |entry| entry.count_words == selected_length }.title
+    fail "neither wpm or minutes can be below 0" unless @amount_can_read > 0
+    @entries.find { |entry| entry.count_words == selected_length }
   end
 
   private 
