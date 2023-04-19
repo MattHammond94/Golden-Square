@@ -27,5 +27,7 @@ class Diary
   def search_for_phone_numbers
     # holds a variable defining what a mobile number is
     # searched and returns an arr of all mobile numbers from diary_entries arr
+    phone_number =~ /^\d{1, 11}$/
+
   end
 end
