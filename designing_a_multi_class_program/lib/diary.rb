@@ -21,7 +21,8 @@ class Diary
   end
 
   def select_entry_by_timeframe(wpm, minutes)
-    # returns an entry that can be read within passed reading time
+    amount_can_read = wpm * minutes
+    
   end
 
   def search_for_phone_numbers

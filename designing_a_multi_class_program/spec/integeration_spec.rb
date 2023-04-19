@@ -42,8 +42,16 @@ end
 
 describe 'select_entry_by_timeframe' do
   context 'acceptable time frame passed' do
-    it 'Should ' do
-      
+    it 'Should return the string/entry with the length closest to given time' do
+      entry_1 = DiaryEntry.new("April", "Started at makers academy")
+      entry_2 = DiaryEntry.new("May", "Spent a lot of time crying")
+      entry_3 = DiaryEntry.new("June", "Ran away")
+      entry_4 = DiaryEntry.new("July", "got a hold of this here secret phone number 07866117788")
+      diary_1 = Diary.new
+      diary_1.add_entry(entry_1)
+      diary_1.add_entry(entry_2)
+      diary_1.add_entry(entry_3)
+      expect(diary_1.select_entry_by_timeframe(1, 3)).to eq "Ran away"
     end
   end
 end
