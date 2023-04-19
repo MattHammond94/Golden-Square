@@ -5,18 +5,22 @@ class Diary
   end
 
   def add_entry(entry)
-  # takes an instance of Entry and adds it to selected array
+    if entry.instance_of?(DiaryEntry)
+      @diary_entries << entry.contents
+    elsif entry.instance_of?(TodoEntry)
+      @tasks << entry.contents
+    end
   end
 
   def show_all_diary_entries
-    # returns arr of all added diary entries
+    @diary_entries
   end
 
   def show_all_todos
-    # returns an arr of all tasks todo
+    @tasks
   end
 
-  def select_entry_by_time(wpm, minutes)
+  def select_entry_by_timeframe(wpm, minutes)
     # returns an entry that can be read within passed reading time
   end
 
