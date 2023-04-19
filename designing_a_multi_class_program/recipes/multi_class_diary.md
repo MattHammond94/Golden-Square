@@ -112,7 +112,7 @@ diary_1.add_entry(entry_3)
 diary_1.show_all_diary_entries => ["Started at makers academy", "Spent a lot of time crying", "Ran away", "got a hold of this here secret phone number 07866117788"]
 diary_1.show_all_todos => []
 diary_1.select_entry_by_time(1, 3) => "Started at makers academy"
-diary_1.search_for_phone_numbers => "07866117788"
+diary_1.search_for_phone_numbers => ["07866117788"]
 
 
 # When both todos and diary entries are added: 
@@ -123,7 +123,7 @@ entry_3 = DiaryEntry.new("May", "Spent a lot of time crying")
 entry_4 = DiaryEntry.new("June", "Ran away")
 entry_5 = DiaryEntry.new("July", "got a hold of this here secret phone number 07866117788")
 entry_6 = TodoEntry.new("July", "Walk the peregrine falcon")
-diary_7 = Diary.new
+diary_1 = Diary.new
 diary_1.add_entry(entry_1)
 diary_1.add_entry(entry_2)
 diary_1.add_entry(entry_3)
@@ -134,7 +134,21 @@ diary_1.add_entry(entry_6)
 diary_1.show_all_diary_entries => ["Started at makers academy", "Spent a lot of time crying", "Ran away", "got a hold of this here secret phone number 07866117788"]
 diary_1.show_all_todos => ["Walk the peregrine falcon", "Buy new fridge"]
 
+# Fail tests:
 
+# No entries added:
+diary_1 = Diary.new
+diary_1.add_entry(entry_1) => "No such entry exists"
+diary_1.add_entry(entry_2) => "No such entry exists"
+
+# Either values passed to by time method equal to zero
+entry_1 = DiaryEntry.new("April", "Started at makers academy")
+entry_2 = TodoEntry.new("April", "Buy new fridge")
+diary_1 = Diary.new
+diary_1.add_entry(entry_1)
+diary_1.add_entry(entry_2)
+diary_1.select_entry_by_time(1, 0) => "Error"
+diary_1.select_entry_by_time(0, 3) => "Error"
 
 ```
 
@@ -150,7 +164,7 @@ entry_2.contents => "This is the second test"
 entry_3.contets => "DJ Khaled"
 entry_3.title => "Another one"
 
-# Fail tests - Empty Strings
+# Fail tests - Empty/invalid Strings
 entry_1 = DiaryEntry.new("", "") => "Both inputs must be valid in order to create a new entry"
 entry_2 = DiaryEntry.new(nil, "One two three") => "Both inputs must be valid in order to create a new entry"
 entry_3 = DiaryEntry.new("April", "") => "Both inputs must be valid in order to create a new entry"
@@ -162,10 +176,10 @@ entry_1 = TodoEntry.new("Today" "Walk the badger")
 entry_1.title => "Today"
 entry_1.contents => "Walk the badger"
 
-# Same fail tetss for TodoEntry class provided previous test passes
+# Same fail tests for TodoEntry class provided previous test passes
 
 ```
 
 ## 5. Implement the Behaviour
 
-
+_After each test you write, follow the test-driving process of red, green, refactor to implement the behaviour_
