@@ -25,9 +25,12 @@ class Diary
   end
 
   def search_for_phone_numbers
-    # holds a variable defining what a mobile number is
-    # searched and returns an arr of all mobile numbers from diary_entries arr
-    phone_number =~ /^\d{1, 11}$/
+    array_of_all_words_in_diaries.select { |string| string.match?(/^\d{11}$/) }
+  end
 
+  private 
+
+  def array_of_all_words_in_diaries
+    @diary_entries.map { |string| string.split(" ") }.flatten
   end
 end

@@ -56,7 +56,7 @@ describe 'Search_for_phone_numbers' do
       entry_3 = DiaryEntry.new("May", "07866554466 is Marks new number")
       entry_4 = DiaryEntry.new("test", "0120234 012026 07845645645 66667778899009373 087665 01202315415")
       entry_5 = DiaryEntry.new("test2", "17 times I have tried to m3m0riz3 th15 number 01202526135 and 1 still cannot remember is 3476")
-      # entry_6 = DiaryEntry.new("test3", "my new number is:07800112211!")
+      entry_6 = DiaryEntry.new("test3", "my new number is:07800112211!")
       diary_1 = Diary.new
       diary_1.add_entry(entry_1)
       diary_1.add_entry(entry_2)
