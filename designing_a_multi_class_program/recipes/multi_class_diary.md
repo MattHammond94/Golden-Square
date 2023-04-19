@@ -138,13 +138,33 @@ diary_1.show_all_todos => ["Walk the peregrine falcon", "Buy new fridge"]
 
 ```
 
-
 ## 4. Create Examples as Unit Tests
+```ruby
+# Testing diary entry can create entries and these entries return their correct contents/title:
 
-entry_1 
+entry_1 = DiaryEntry.new("Yes", "one two three four")
+entry_2 = DiaryEntry.new("Second", "This is the second test")
+entry_3 = DiaryEntry.new("Another one", "DJ Khaled")
+entry_1.title => "Yes"
+entry_2.contents => "This is the second test"
+entry_3.contets => "DJ Khaled"
+entry_3.title => "Another one"
 
+# Fail tests - Empty Strings
+entry_1 = DiaryEntry.new("", "") => "Both inputs must be valid in order to create a new entry"
+entry_2 = DiaryEntry.new(nil, "One two three") => "Both inputs must be valid in order to create a new entry"
+entry_3 = DiaryEntry.new("April", "") => "Both inputs must be valid in order to create a new entry"
+entry_4 = DiaryEntry.new("June", 12) => "Both inputs must be valid in order to create a new entry"
 
+# checking inheritence works on TodoEntry class
 
+entry_1 = TodoEntry.new("Today" "Walk the badger")
+entry_1.title => "Today"
+entry_1.contents => "Walk the badger"
+
+# Same fail tetss for TodoEntry class provided previous test passes
+
+```
 
 ## 5. Implement the Behaviour
 
