@@ -12,6 +12,6 @@ class MusicLibrary
   end
   
   def search(keyword)
-    @library.map { |string| string.matches? }
+    @library.select { |track| track.matches? }
   end
 end
