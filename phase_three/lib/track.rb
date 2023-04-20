@@ -5,6 +5,6 @@ class Track
   end
 
   def matches?(keyword) 
-    @title == keyword || @artist == keyword ? true : false
+    @title.include?(keyword) || @artist.include?(keyword) ? true : false
   end
 end
