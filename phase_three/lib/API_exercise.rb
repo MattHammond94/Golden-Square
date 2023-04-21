@@ -3,13 +3,15 @@ require 'json'
 require 'net/http'
 
 class TimeError
-  # Returns difference in seconds between server time
-  # and the time on this computer
+  def initialize(request)
+    requester = request
+  end
+
   def error
     return get_server_time - Time.now
   end
 
-  # private
+  private
 
   def get_server_time
     text_response = Net::HTTP.get(URI("https://worldtimeapi.org/api/ip"))
@@ -18,6 +20,9 @@ class TimeError
   end
 end
 
-time = TimeError.new
-p time.error
-p time.get_server_time
+# time = TimeError.new
+# p time.error
+# p time.get_server_time
+
+# Net::HTTP <<< This ere creates API request - This is what needs to be controlled.
+
