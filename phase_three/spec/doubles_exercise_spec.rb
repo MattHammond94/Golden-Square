@@ -4,46 +4,35 @@ RSpec.describe "doubles" do
     expect(fake_object).to be
   end
 
-  # xit "sets up a double with methods" do
-  #   # Set up your doubles here
-  #   fake_object = # ...
+  it "sets up a double with methods" do
+    fake_object = double(:fake, speak: "Meow", count_ears: 2, count_legs: 4)
+    expect(fake_object.speak).to eq "Meow"
+    expect(fake_object.count_ears).to eq 2
+    expect(fake_object.count_legs).to eq 4
+  end
 
-  #   # Don't edit below
-  #   expect(fake_object.speak).to eq "Meow"
-  #   expect(fake_object.count_ears).to eq 2
-  #   expect(fake_object.count_legs).to eq 4
-  # end
+  it "sets up a double with methods that take arguments" do
+    fake_object = double(:fake)
+    # allow(fake_object).to receive(:speak).with("Jess").and_return("Meow, Jess") << Using allow
+    expect(fake_object).to receive(:speak).with("Jess").and_return("Meow, Jess")
 
-#   xit "sets up a double with methods that take arguments" do
-#     # Set up your doubles here
-#     fake_object = # ...
+    expect(fake_object.speak("Jess")).to eq "Meow, Jess"
+    expect { fake_object.speak("Ron") }.to raise_error RSpec::Mocks::MockExpectationError
+  end
 
-#     # Don't edit below
-#     expect(fake_object.speak("Jess")).to eq "Meow, Jess"
-#     # Don't stub this next one
-#     # It's just to verify you've set up the double correctly
-#     expect { fake_object.speak("Ron") }.to raise_error RSpec::Mocks::MockExpectationError
-#   end
+  it "sets up doubles that expect to be called" do
+    fake_object = double :animal
+   
+    expect(fake_object).to receive(:speak).with("Steve").and_return("Steve")
 
-#   xit "sets up doubles that expect to be called" do
-#     fake_object = double :animal
-#     # Write an expectation below that the method "speak" is called with
-#     # the argument "Steve"
+    fake_object.speak("Steve")
+  end
 
-#     # ...
-
-#     # Don't edit below
-#     fake_object.speak("Steve")
-#   end
-
-#   xit "creates a double for a specific case" do
-#     fake_diary = double :diary, add: nil
-#     # Set up this double to pass the tests below
-#     # ...
-
-#     # Don't edit below
-#     fake_diary.add(double :diary_entry)
-#     fake_diary.add(double :diary_entry)
-#     expect(fake_diary.count_entries).to eq 2
-#   end
-# end
+  it "creates a double for a specific case" do
+    fake_diary = double :diary, add: nil
+    allow(fake_diary).to receive(:count_entries).and_return 2
+    fake_diary.add(double :diary_entry)
+    fake_diary.add(double :diary_entry)
+    expect(fake_diary.count_entries).to eq 2
+  end
+end
