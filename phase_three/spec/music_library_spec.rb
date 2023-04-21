@@ -26,10 +26,3 @@ end
 
 class FakeTrack
 end
-
-# class FakeTrackWithTitleAndArtist
-#   def initialize(title, artist)
-#     @title = title
-#     @artist = artist
-#   end
-# end
