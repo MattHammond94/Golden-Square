@@ -5,10 +5,10 @@ class SecretDiary
   end
 
   def read
-    if @lock = true 
+    if @lock == true 
       "Go away!"
     else
-      @diary.read
+      @diary.contents
     end
   end
 
