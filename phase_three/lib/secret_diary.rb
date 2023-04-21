@@ -6,7 +6,7 @@ class SecretDiary
 
   def read
     if @lock == true 
-      "Go away!"
+      fail "Go away!"
     else
       @diary.contents
     end
