@@ -2,7 +2,7 @@ require 'string_repeater'
 
 describe StringRepeater do
   it 'Should repeat given string given amount of times' do
-    io = double :terminal
+    terminal = double :io
     expect(terminal).to receive(:puts).with("Hello. I will repeat a string many times.").ordered
     expect(terminal).to receive(:puts).with("Please enter a string").ordered
     expect(terminal).to receive(:gets).and_return("Cabbage").ordered
@@ -10,7 +10,7 @@ describe StringRepeater do
     expect(terminal).to receive(:gets).and_return("5").ordered
     expect(terminal).to receive(:puts).with("Here is your result:").ordered
     expect(terminal).to receive(:puts).with("CabbageCabbageCabbageCabbageCabbage").ordered
-    repeater = StringRepeater.new(io)
+    repeater = StringRepeater.new(terminal)
     repeater.run
   end
 end
