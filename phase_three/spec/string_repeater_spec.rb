@@ -38,5 +38,16 @@ describe StringRepeater do
       repeater = StringRepeater.new(terminal)
       expect { repeater.run }.to raise_error "Integer must be a postive number."
     end
+
+    it 'return an error message when a negative int is given ' do
+      terminal = double :io
+      expect(terminal).to receive(:puts).with("Hello. I will repeat a string many times.").ordered
+      expect(terminal).to receive(:puts).with("Please enter a string").ordered
+      expect(terminal).to receive(:gets).and_return("Salmon").ordered
+      expect(terminal).to receive(:puts).with("Please enter a number of repeats").ordered
+      expect(terminal).to receive(:gets).and_return("0").ordered
+      repeater = StringRepeater.new(terminal)
+      expect { repeater.run }.to raise_error "Integer must be a postive number."
+    end
   end
 end
